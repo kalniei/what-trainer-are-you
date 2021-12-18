@@ -38,10 +38,10 @@ const theme = createTheme({
     },
     h4: {
       color: Colors.darkGrey,
-      fontSize: `16px`,
-      fontWeight: 600,
+      fontSize: `17px`,
+      fontWeight: 700,
       textTransform: 'uppercase',
-      paddingBottom: 0
+      paddingBottom: '16px'
     },
     h5: {
       textTransform: 'uppercase',

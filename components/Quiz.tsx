@@ -1,32 +1,36 @@
-import { Card, CardContent, Grid, Button, Typography, Divider } from '@mui/material';
+import { Card, CardContent, Grid, Button, Typography, Divider, Stepper } from '@mui/material';
 import Image from 'next/image';
-import quizOptions from '../helpers/quizOptions';
+import { useState } from 'react';
+import Finish from './Finish';
+import Header from './Header';
+import QuizSteps from './QuizSteps';
 
 const Quiz = (): JSX.Element => {
+  const [result, setResult] = useState<number>(0);
+  const [finished, setFinished] = useState<boolean>(false);
+
+  const finishTest = (result: number) => {
+    setFinished(true);
+    setResult(result);
+  };
   return (
     <Grid
       container
       item
       xs={11}
-      md={7}
-      xl={5}
+      md={8}
+      xl={6}
       alignItems="center"
       justifyContent="center"
       style={{ minHeight: '100vh', width: '100%', margin: '0 auto' }}
     >
       <Grid container spacing={2} alignItems="center" justifyContent="center">
-        <Grid item xs={12}>
-          <Image src="/brainup-logo.png" alt="Brain Up" width={145} height={83} />
-        </Grid>
-        <Divider sx={{ width: '100%' }} />
+        <Header />
         <Grid item xs={12}>
           <Card>
             <CardContent>
-              <Grid container>
-                <Grid item xs={12}>
-                  Troll
-                </Grid>
-              </Grid>
+              {!finished && <QuizSteps finishTest={finishTest} />}
+              {finished && <Finish result={result} />}
             </CardContent>
           </Card>
         </Grid>

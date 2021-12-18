@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import { Card, CardContent, Grid, Button, Typography } from '@mui/material';
+import { Card, CardContent, Grid, Button, Typography, Divider } from '@mui/material';
 import router from 'next/dist/client/router';
+import Header from './Header';
 
 const Home = (): JSX.Element => {
   const goToQuiz = () => {
@@ -12,17 +13,18 @@ const Home = (): JSX.Element => {
       container
       item
       xs={11}
-      md={8}
+      md={7}
       xl={6}
       alignItems="center"
       justifyContent="center"
       style={{ minHeight: '100vh', width: '100%', margin: '0 auto' }}
     >
       <Grid container spacing={2} alignItems="center" justifyContent="center">
-        <Grid item xs={6}>
+        <Header />
+        <Grid item xs={12} md={6} textAlign="center">
           <Image src="/home-img.jpg" alt="Brain Up" width={500} height={375} />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Card>
             <CardContent>
               <Grid container>
