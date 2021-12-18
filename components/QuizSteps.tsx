@@ -1,6 +1,6 @@
-import { Grid, Button, Stepper, Step, StepLabel } from '@mui/material';
+import { Grid, Button, Stepper, Step, StepLabel, MobileStepper } from '@mui/material';
 import { useEffect, useState } from 'react';
-import quizOptions from '../helpers/quizOptions';
+import quizOptions from '../helpers/QuizOptions';
 import { IQuiz, IQuizOptions } from '../ts/interfaces';
 import SingleRadioGroup from './SingleRadioGroup';
 
@@ -70,13 +70,23 @@ const QuizSteps = ({ finishTest }: PageProps): JSX.Element => {
 
   return (
     <>
-      <Stepper activeStep={activeStep}>
+      <Stepper activeStep={activeStep} sx={{ display: { md: 'flex', xs: 'none' } }}>
         {steps.map((option: IQuiz) => (
           <Step key={option.id}>
             <StepLabel />
           </Step>
         ))}
       </Stepper>
+
+      <MobileStepper
+        sx={{ display: { md: 'none', xs: 'block' } }}
+        variant="text"
+        steps={steps.length}
+        position="static"
+        activeStep={activeStep}
+        nextButton={null}
+        backButton={null}
+      />
 
       <Grid container>
         <Grid item xs={12} mt={4}>
