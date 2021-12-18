@@ -26,7 +26,13 @@ const SingleRadioGroup = ({ option, passChosenOption }: PageProps): JSX.Element 
         }
       >
         {option?.options.map((x) => (
-          <FormControlLabel key={x.id} value={x.id} control={<Radio />} label={x.optionLabel} />
+          <FormControlLabel
+            sx={{ mb: 2 }}
+            key={x.id}
+            value={x.id}
+            control={<Radio />}
+            label={x.optionLabel}
+          />
         ))}
       </RadioGroup>
     </FormControl>
