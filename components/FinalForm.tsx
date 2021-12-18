@@ -95,7 +95,7 @@ const FinalForm = ({ type }: PageProps): JSX.Element => {
             render={({ field }) => (
               <TextField
                 {...field}
-                label="Imje i nazwisko"
+                label="Imię i nazwisko"
                 required
                 fullWidth
                 error={!!errors?.name}
@@ -188,7 +188,7 @@ const FinalForm = ({ type }: PageProps): JSX.Element => {
         <Grid item xs={12}>
           {!isError && !isSuccess && (
             <Button variant="contained" disabled={!checked} onClick={handleSubmit(onSubmit)}>
-              Get my free pdf
+              Wysyłam
             </Button>
           )}
 

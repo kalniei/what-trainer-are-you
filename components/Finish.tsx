@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { TTrainerType } from '../ts/types';
 import FinalForm from './FinalForm';
+import Colors from '../helpers/Colors';
 
 interface PageProps {
   result: number;
@@ -50,9 +51,13 @@ const Finish = ({ result }: PageProps): JSX.Element => {
           <Grid container spacing={4}>
             <Grid item xs={12} md={6} textAlign="center">
               <Typography variant="h4">Twój typ trenera to: </Typography>
-              <Typography variant="h2" my={4} textAlign="center">
+              <Typography variant="h2" fontWeight={800}>
                 {type}
               </Typography>
+              <Typography variant="subtitle1">
+                Chcesz dowiedzieć się więcej? Wyślimy Ci to!{' '}
+              </Typography>
+
               <Image src={`/${type}.jpeg`} alt={type} width={300} height={300} />
             </Grid>
             <Grid item xs={12} md={6}>
